@@ -1,18 +1,20 @@
+<script setup lang="ts">
+defineProps<{ msg: string }>()
+
+console.log(import.meta.env.VITE_APP_BASE_URL)
+</script>
+
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>
+    <van-button type="primary">主要按钮</van-button>
+    <div class="box"></div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-
-export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-})
-</script>
+<style lang="less" scoped>
+.box {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+</style>
