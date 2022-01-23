@@ -7,13 +7,17 @@
   <router-view />
 </template>
 
-<style>
-#app {
-  margin-top: 60px;
-  text-align: center;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style lang="less">
+// 页面顶部进度条
+#nprogress {
+  .bar {
+    background: #7a88fe !important; //自定义颜色
+    .peg {
+      box-shadow: 0 0 10px #7a88fe, 0 0 5px #7a88fe;
+    }
+  }
+  .spinner {
+    display: none !important;
+  }
 }
 </style>

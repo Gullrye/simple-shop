@@ -26,10 +26,10 @@ export default defineConfig({
     // 设置代理，根据项目实际情况配置
     proxy: {
       '/api': {
-        target: '',
+        target: 'http://47.99.134.126:28019',
         changeOrigin: true,
-        secure: false,
-        rewrite: path => path.replace('/api/', '/')
+        secure: false
+        // rewrite: path => path.replace('/api/v1', '/api/v1')
       }
     }
   }
