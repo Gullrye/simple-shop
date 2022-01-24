@@ -4,7 +4,62 @@ import router from './router'
 import store from './store'
 import 'lib-flexible/flexible'
 import 'nprogress/nprogress.css'
-import { Button } from 'vant'
+
+import {
+  Button,
+  Form,
+  Field,
+  Toast,
+  Swipe,
+  SwipeItem,
+  Tab,
+  Tabs,
+  List,
+  PullRefresh,
+  ActionBar,
+  ActionBarIcon,
+  ActionBarButton,
+  Badge,
+  SubmitBar,
+  Checkbox,
+  CheckboxGroup,
+  SwipeCell,
+  Stepper,
+  Popup,
+  AddressList,
+  AddressEdit,
+  Card
+} from 'vant'
+
+const components = [
+  Button,
+  Form,
+  Field,
+  Toast,
+  Swipe,
+  SwipeItem,
+  Tab,
+  Tabs,
+  List,
+  PullRefresh,
+  ActionBar,
+  ActionBarIcon,
+  ActionBarButton,
+  Badge,
+  SubmitBar,
+  Checkbox,
+  CheckboxGroup,
+  SwipeCell,
+  Stepper,
+  Popup,
+  AddressList,
+  AddressEdit,
+  Card
+]
+
 const app = createApp(App)
+
+for (const cpn of components) {
+  app.use(cpn)
+}
 app.use(store).use(router).mount('#app')
-app.use(Button)

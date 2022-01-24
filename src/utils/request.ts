@@ -5,7 +5,7 @@ import NProgress from 'nprogress'
 import cache from '@/utils/cache'
 
 interface DataType {
-  data?: Record<string, unknown>
+  data: any
   message: string
   resultCode: number
 }
@@ -16,10 +16,10 @@ interface ResultType {
   err?: string
 }
 interface Http {
-  get(url: string, params?: any): Promise<ResultType>
+  get(url: string, params?: any): Promise<DataType>
   post(url: string, params?: Record<string, unknown>): Promise<ResultType>
   put(url: string, params?: Record<string, unknown>): Promise<ResultType>
-  delete(url: string): Promise<ResultType>
+  delete(url: string): Promise<DataType>
 }
 
 /**

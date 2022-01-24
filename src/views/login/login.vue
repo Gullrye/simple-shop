@@ -1,24 +1,53 @@
 <template>
-  <div>login</div>
+  <div class="login">
+    <SHeader :name="type == 'login' ? '登录' : '注册'" :back="'/home'" />
+    <div class="logo">
+      <i
+        :class="[
+          { register: type === 'register' },
+          'iconfont',
+          'icon-erhaohaiou'
+        ]"
+      ></i>
+      <h1>OH商城</h1>
+    </div>
+    <div class="login-body login">
+      <FormPanel @toggleType="handleTypeToggle" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import service from '@/utils/request'
-import { ref, Ref } from 'vue'
-import { Md5 } from 'ts-md5/dist/md5'
-defineProps<{ msg: string }>()
+import { ref } from 'vue'
+import SHeader from '@/components/simple-header.vue'
+import FormPanel from './components/form-panel.vue'
 
-const data: Ref<any> = ref([])
-const getData = async () => {
-  data.value = await service.get('/index-infos')
-  console.log(data.value)
-  const xx = await service.post('/user/login', {
-    loginName: '13600000009',
-    passwordMd5: Md5.hashStr('111111')
-  })
-  console.log(xx)
+const type = ref('login')
+
+const handleTypeToggle = (currentType: string) => {
+  type.value = currentType
 }
-getData()
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.login {
+  .logo {
+    margin: 80px auto 0;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    color: #7a88fe;
+    i {
+      display: block;
+      font-size: 80px;
+      transition: all .3s;
+      &.register {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  .login-body {
+    padding: 0 20px;
+  }
+}
+</style>
