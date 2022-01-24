@@ -11,9 +11,9 @@
   top: 0;
   z-index: 100000;
   .bar {
-    background: #1baeae !important; //自定义颜色
+    background: #747bff !important; //自定义颜色
     .peg {
-      box-shadow: 0 0 10px #1baeae, 0 0 5px #1baeae;
+      box-shadow: 0 0 10px #747bff, 0 0 5px #747bff;
     }
   }
   .spinner {
