@@ -1,6 +1,6 @@
 <template>
   <div class="home-swiper">
-    <van-swipe :autoplay="3000" class="my-swipe" indicator-color="#7a88fe">
+    <van-swipe :autoplay="3000" class="my-swipe" indicator-color="#1baeae">
       <van-swipe-item v-for="(item, index) in list" :key="index">
         <img :src="item.carouselUrl" />
       </van-swipe-item>

@@ -36,7 +36,7 @@ const handleTypeToggle = (currentType: string) => {
     width: 150px;
     height: 150px;
     text-align: center;
-    color: #7a88fe;
+    color: #1baeae;
     i {
       display: block;
       font-size: 80px;

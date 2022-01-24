@@ -32,7 +32,7 @@ const goBack = () => {
 </script>
 
 <style lang="less" scoped>
-@import '../assets/css/mixin';
+@import '@/assets/css/mixin';
 .simple-header {
   position: fixed;
   left: 0;

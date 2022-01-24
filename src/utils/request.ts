@@ -33,8 +33,8 @@ service.interceptors.request.use(
   (config: any): AxiosRequestConfig<any> => {
     const token = cache.getCache('token')
     if (token) {
-      // config.headers.token = token
-      config.headers.Authorization = `Bearer ${token}`
+      config.headers.token = token // 本项目需要设置
+      // config.headers.Authorization = `Bearer ${token}`
     }
     return config
   },

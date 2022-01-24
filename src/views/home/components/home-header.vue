@@ -62,6 +62,7 @@ onMounted(() => {
   .wh(100%, 50px);
   .boxSizing();
   .icon-caidan {
+    font-size: 22px;
     color: @primary;
   }
   &.active {
@@ -106,7 +107,7 @@ onMounted(() => {
     }
     .icon-search {
       padding: 0 4px;
-      font-size: 17px;
+      font-size: 18px;
     }
     .search-title {
       overflow: hidden;
@@ -122,7 +123,7 @@ onMounted(() => {
     color: @primary;
     i {
       vertical-align: -3px;
-      font-size: 20px;
+      font-size: 22px;
     }
   }
 }

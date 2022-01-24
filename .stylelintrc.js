@@ -22,6 +22,8 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'string-quotes': 'single',
+    'selector-class-pattern': null,
+    'selector-pseudo-class-no-unknown': null,
     /* eslint-disable quote-props */
     'alpha-value-notation': 'number',
     'at-rule-empty-line-before': 'never',

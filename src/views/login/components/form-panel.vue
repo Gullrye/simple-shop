@@ -24,7 +24,7 @@
           round
           block
           type="default"
-          color="#7a88fe"
+          color="#1baeae"
           native-type="submit"
           >{{ formType === 'login' ? '登录' : '注册' }}</van-button
         >

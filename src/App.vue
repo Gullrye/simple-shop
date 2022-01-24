@@ -1,19 +1,19 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-</script>
-
 <template>
   <router-view />
 </template>
 
+<script setup lang="ts"></script>
+
 <style lang="less">
 // 页面顶部进度条
 #nprogress {
+  position: fixed;
+  top: 0;
+  z-index: 100000;
   .bar {
-    background: #7a88fe !important; //自定义颜色
+    background: #1baeae !important; //自定义颜色
     .peg {
-      box-shadow: 0 0 10px #7a88fe, 0 0 5px #7a88fe;
+      box-shadow: 0 0 10px #1baeae, 0 0 5px #1baeae;
     }
   }
   .spinner {
