@@ -95,6 +95,7 @@ const goToDetail = (item: any) => {
         display: block;
         margin: 0 auto;
         width: 120px;
+        height: 120px;
       }
       .good-desc {
         padding: 10px 0;

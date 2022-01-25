@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import HomeHeader from './components/home-header.vue'
 import HomeSwiper from './components/swiper.vue'
 import HomeCategory from './components/home-category.vue'
@@ -24,7 +24,7 @@ const newGoodses = ref<any>([])
 const hots = ref<any>([])
 const recommends = ref<any>([])
 
-onMounted(async () => {
+const init = async () => {
   const { data: homeData } = await getHome()
   if (homeData) {
     swiperList.value = homeData.carousels.reverse()
@@ -32,7 +32,8 @@ onMounted(async () => {
     hots.value = homeData.hotGoodses
     recommends.value = homeData.recommendGoodses
   }
-})
+}
+init()
 </script>
 
 <style lang="less" scoped></style>

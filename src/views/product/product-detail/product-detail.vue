@@ -63,7 +63,6 @@ import { useRoute } from 'vue-router'
 const detailData = ref<any>({})
 const detailSlideImgs = ref<any>([])
 const isAddingCart = ref(false)
-const cartItemId = ref(0)
 const commonStore = useCommonStore()
 const count = computed(() => {
   return commonStore.cartCount

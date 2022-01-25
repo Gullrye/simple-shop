@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import SHeader from '@/components/simple-header.vue'
 import TabBar from '@/components/tab-bar.vue'
 import router from '@/router'
@@ -45,10 +45,11 @@ const goTo = (r: string, q?: any) => {
   router.push({ path: r, query: q })
 }
 
-onMounted(async () => {
+const init = async () => {
   const { data } = await getUserInfo()
   user.value = data
-})
+}
+init()
 </script>
 
 <style lang="less" scoped>

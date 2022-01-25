@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { getRealImg } from '@/utils/util'
 import { search } from '@/api/good'
 import { useRoute } from 'vue-router'
@@ -134,12 +134,12 @@ const changeTab = (name: string) => {
   onRefresh()
 }
 
-onMounted(() => {
-  if (commonStore.keyword) {
-    keyword.value = commonStore.keyword
-    getSearch()
-  }
-})
+// onMounted(() => {
+if (commonStore.keyword) {
+  keyword.value = commonStore.keyword
+  getSearch()
+}
+// })
 </script>
 
 <style lang="less" scoped>

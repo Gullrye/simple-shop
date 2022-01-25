@@ -15,11 +15,14 @@ defineProps<{
 </script>
 
 <style lang="less" scoped>
-.my-swipe .van-swipe-item {
-  img {
-    width: 100%;
-    height: auto;
-  }
+.my-swipe {
   margin-top: 50px;
+  .van-swipe-item {
+    aspect-ratio: 20 / 9;
+    img {
+      width: 100%;
+      aspect-ratio: 20 / 9;
+    }
+  }
 }
 </style>

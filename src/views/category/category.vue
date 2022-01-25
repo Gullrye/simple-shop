@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import router from '@/router'
 import { getCategory } from '@/api/good'
 import TabBar from '@/components/tab-bar.vue'
@@ -73,10 +73,11 @@ const goHome = () => {
   router.push('/home')
 }
 
-onMounted(async () => {
+const init = async () => {
   const { data } = await getCategory()
   categoryData.value = dealCategoryData(data)
-})
+}
+init()
 </script>
 
 <style lang="less" scoped>
@@ -152,6 +153,7 @@ onMounted(async () => {
           .product-img img {
             padding: 5px 0;
             width: 50px;
+            height: 50px;
             color: @primary;
           }
           .product-title {

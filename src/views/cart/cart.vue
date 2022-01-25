@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import SHeader from '@/components/simple-header.vue'
 import TabBar from '@/components/tab-bar.vue'
 import emptyCart from './components/empty-cart.vue'
@@ -160,9 +160,7 @@ const onSubmit = () => {
   router.push({ path: '/order-create', query: { cartItemIds: params } })
 }
 
-onMounted(() => {
-  init()
-})
+init()
 </script>
 
 <style lang="less" scoped>
