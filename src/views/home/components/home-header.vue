@@ -46,6 +46,7 @@ onMounted(() => {
 <style lang="less" scoped>
 @import '@/assets/css/mixin';
 .home-header {
+  contain: layout;
   overflow: hidden;
   position: absolute;
   left: 0;
