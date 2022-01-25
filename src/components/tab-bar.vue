@@ -48,9 +48,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, onMounted } from 'vue'
+import { useCommonStore } from '@/store/common'
 
-const count = ref(1)
+const commonStore = useCommonStore()
+const count = computed(() => {
+  return commonStore.cartCount === 0 ? '' : commonStore.cartCount
+})
+onMounted(() => {
+  commonStore.updateCart()
+})
 </script>
 
 <style lang="less" scoped>

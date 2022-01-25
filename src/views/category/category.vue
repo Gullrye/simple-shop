@@ -67,7 +67,7 @@ const dealCategoryData = (data: any[]) => {
 }
 
 const selectProduct = (it: Record<string, number>) => {
-  router.push({ path: `product-list?categoryId=${it.categoryId}` })
+  router.push({ path: `product-list`, query: { categoryId: it.categoryId } })
 }
 const goHome = () => {
   router.push('/home')

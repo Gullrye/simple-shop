@@ -11,9 +11,10 @@ interface DataType {
 }
 interface ResultType {
   status?: number
-  data: DataType
+  data: DataType | string
   statusText?: string
   err?: string
+  resultCode?: number
 }
 interface Http {
   get(url: string, params?: any): Promise<DataType>
@@ -44,7 +45,7 @@ service.interceptors.request.use(
 )
 // 响应拦截
 service.interceptors.response.use((res: ResultType) => {
-  const data: DataType = res.data
+  const data: DataType | string = res.data
   if (typeof data !== 'object') {
     Toast.fail('服务端异常')
     return Promise.reject(res)

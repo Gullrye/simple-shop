@@ -9,9 +9,9 @@ export function getCart() {
 export function deleteCartItem(id: number) {
   return http.delete('shop-cart/' + id)
 }
-export function modifyCart(params: { cartItemId: string; goodsCount: string }) {
+export function modifyCart(params: { cartItemId: any; goodsCount: any }) {
   return http.put('shop-cart', params)
 }
-export function getByCartItemIds(params: number[]) {
+export function getByCartItemIds(params: any) {
   return http.get('/shop-cart/settle', { params })
 }

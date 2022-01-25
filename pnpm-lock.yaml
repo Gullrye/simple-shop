@@ -7,6 +7,7 @@ specifiers:
   '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^4.33.0
   '@typescript-eslint/parser': ^4.33.0
+  '@vant/area-data': ^1.2.2
   '@vitejs/plugin-vue': ^2.0.0
   '@vue/compiler-sfc': ^3.2.28
   '@vue/eslint-config-prettier': ^6.0.0
@@ -42,6 +43,7 @@ specifiers:
   vue-tsc: ^0.29.8
 
 dependencies:
+  '@vant/area-data': 1.2.2
   axios: 0.25.0
   lib-flexible: 0.3.2
   nprogress: 0.2.0
@@ -546,6 +548,10 @@ packages:
       '@typescript-eslint/types': 4.33.0
       eslint-visitor-keys: 2.1.0
     dev: true
+
+  /@vant/area-data/1.2.2:
+    resolution: {integrity: sha512-efv7Yl/OTHjyy0irhJJPtgZb5mJZmroEtVOa8vkGRNTLY93+NgEcVuIBaC35hYCMsTrPHDQRvQGnI9Hyhtto0Q==, tarball: '@vant/area-data/download/@vant/area-data-1.2.2.tgz'}
+    dev: false
 
   /@vant/icons/1.7.3:
     resolution: {integrity: sha512-tW4EqzxN4kXw1rnlnQJQHofEifPbt/gECOWiibomht8QLyvoGuE4iUmDFS288dJ07ZjuTy0bhdABj0SENo2fmQ==, tarball: '@vant/icons/download/@vant/icons-1.7.3.tgz'}

@@ -12,19 +12,19 @@
       </div>
     </div>
     <ul class="user-list">
-      <li @click="goTo('order-list?from=user')">
+      <li @click="goTo('/order-list', { from: 'user' })">
         <span>我的订单</span>
         <i class="iconfont icon-arrow"></i>
       </li>
-      <li @click="goTo('account-setting')">
+      <li @click="goTo('/account-setting')">
         <span>账号管理</span>
         <i class="iconfont icon-arrow"></i>
       </li>
-      <li @click="goTo('address-list?from=user')">
+      <li @click="goTo('/address-list', { from: 'user' })">
         <span>地址管理</span>
         <i class="iconfont icon-arrow"></i>
       </li>
-      <li @click="goTo('about')">
+      <li @click="goTo('/about')">
         <span>关于我们</span>
         <i class="iconfont icon-arrow"></i>
       </li>
@@ -41,8 +41,8 @@ import router from '@/router'
 import { getUserInfo } from '@/api/user'
 
 const user = ref<any>({})
-const goTo = (r: string) => {
-  router.push({ path: r })
+const goTo = (r: string, q?: any) => {
+  router.push({ path: r, query: q })
 }
 
 onMounted(async () => {

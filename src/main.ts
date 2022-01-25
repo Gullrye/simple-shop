@@ -28,7 +28,8 @@ import {
   Popup,
   AddressList,
   AddressEdit,
-  Card
+  Card,
+  Lazyload
 } from 'vant'
 
 const components = [
@@ -54,7 +55,8 @@ const components = [
   Popup,
   AddressList,
   AddressEdit,
-  Card
+  Card,
+  Lazyload
 ]
 
 const app = createApp(App)
@@ -62,4 +64,7 @@ const app = createApp(App)
 for (const cpn of components) {
   app.use(cpn)
 }
+app.use(Lazyload, {
+  lazyComponent: true
+})
 app.use(store).use(router).mount('#app')

@@ -8,11 +8,7 @@
         ref="checkboxGroup"
         @change="groupChange"
       >
-        <div
-          class="good-item"
-          v-for="(item, index) in cartGoodsList"
-          :key="index"
-        >
+        <div class="good-item" v-for="item in cartGoodsList" :key="item">
           <!-- 滑动单元格 -->
           <van-swipe-cell>
             <van-checkbox :name="item.cartItemId" />
@@ -30,7 +26,7 @@
                 <van-stepper
                   integer
                   :min="1"
-                  :value="item.goodsCount"
+                  :model-value="item.goodsCount"
                   :name="item.cartItemId"
                   async-change
                   @change="onChange"
@@ -73,11 +69,11 @@ import { ref, computed, onMounted } from 'vue'
 import SHeader from '@/components/simple-header.vue'
 import TabBar from '@/components/tab-bar.vue'
 import emptyCart from './components/empty-cart.vue'
-import { Toast } from 'vant'
-import type { CheckboxGroupInstance } from 'vant'
+import { Toast, CheckboxGroupInstance } from 'vant'
 import router from '@/router'
 import { deleteCartItem, getCart, modifyCart } from '@/api/cart'
 import { getRealImg } from '@/utils/util'
+import { useCommonStore } from '@/store/common'
 
 // 购物袋商品列表
 const cartGoodsList = ref<any>([])
@@ -132,6 +128,7 @@ const groupChange = (checkedGoodsIdArrArg: number[]) => {
   }
   checkedGoodsIdArr.value = checkedGoodsIdArrArg
 }
+
 // 判断 checkAll，如果已是全选状态，checkAll 将变为 false，所以清空 checkedGoodsIdArr 内的变量，价格变为 0
 // 如果是非全选状态，checkAll 将变为 true，直接将 cartGoodsList 下的 id 塞进 checkedGoodsIdArr 变量里，total 会自动变为相应的价格
 const checkboxGroup = ref<CheckboxGroupInstance>()
@@ -143,21 +140,24 @@ const allCheck = () => {
   } else {
     checkedGoodsIdArr.value = []
   }
-  checkboxGroup.value?.toggleAll()
+  checkboxGroup.value!.toggleAll()
 }
+
+const commonStore = useCommonStore()
 const deleteGood = async (id: number) => {
   await deleteCartItem(id)
-  //TODO: this.$store.dispatch('updateCart')
+  commonStore.updateCart()
   init()
 }
 
 const onSubmit = () => {
-  if (!(checkedGoodsIdArr.value.length === 0)) {
+  if (checkedGoodsIdArr.value.length === 0) {
     Toast.fail('请选择商品进行结算')
     return
   }
+  console.log(checkedGoodsIdArr.value)
   const params = JSON.stringify(checkedGoodsIdArr.value)
-  router.push({ path: `create-order?cartItemIds=${params}` })
+  router.push({ path: '/order-create', query: { cartItemIds: params } })
 }
 
 onMounted(() => {
