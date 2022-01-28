@@ -8,26 +8,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 切换分支
       - name: Checkout
-        uses: actions/checkout@main # @ 后是版本号或分支对应最近版本
-      - uses: pnpm/action-setup@v2.0.1
-      with:
-        version: next
-      # 使用 node:14
-      - name: use Node.js 14
+        uses: actions/checkout@main
+      - name: use Node.js 16
         uses: actions/setup-node@v2.1.2
         with:
-          node-version: '14.x'
-          cache: 'pnpm'
-      # 下载依赖并打包
+          node-version: '16.x'
       - name: Build
         run: |
-          pnpm install
-          pnpm run build
-      # Deploy
+          yarn install
+          yarn run build
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main # 使用 ssh-deploy 库上 main 分支的版本
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: '-avzr --delete'
