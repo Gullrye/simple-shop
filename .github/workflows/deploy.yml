@@ -8,16 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: use Node.js 16
-        uses: actions/setup-node@v2.1.2
+      - uses: actions/checkout@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
         with:
-          node-version: '16.x'
+          version: 6.15.1
+      - name: Set node version to 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'pnpm'
+      - run: pnpm install
       - name: Build
-        run: |
-          yarn install
-          yarn run build
+        run: pnpm build
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
