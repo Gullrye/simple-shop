@@ -1,7 +1,7 @@
 <template>
   <div class="home-category">
     <div v-for="item in categoryList" :key="item.categoryId">
-      <img :src="item.imgUrl" />
+      <img v-lazy="item.imgUrl" alt="category" />
       <span>{{ item.name }}</span>
     </div>
   </div>

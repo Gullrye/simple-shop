@@ -9,7 +9,9 @@
           :key="item.goodsId"
           @click="goToDetail(item)"
         >
-          <img :src="getRealImg(item.goodsCoverImg)" />
+          <div class="img-wrapper">
+            <img v-lazy="getRealImg(item.goodsCoverImg)" alt="goods" />
+          </div>
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
             <div class="price">￥ {{ item.sellingPrice }}</div>
@@ -26,7 +28,9 @@
           :key="item.goodsId"
           @click="goToDetail(item)"
         >
-          <img v-lazy="getRealImg(item.goodsCoverImg)" />
+          <div class="img-wrapper">
+            <img v-lazy="getRealImg(item.goodsCoverImg)" alt="goods" />
+          </div>
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
             <div class="price">￥ {{ item.sellingPrice }}</div>
@@ -43,7 +47,9 @@
           :key="item.goodsId"
           @click="goToDetail(item)"
         >
-          <img v-lazy="getRealImg(item.goodsCoverImg)" />
+          <div class="img-wrapper">
+            <img v-lazy="getRealImg(item.goodsCoverImg)" alt="goods" />
+          </div>
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
             <div class="price">￥ {{ item.sellingPrice }}</div>
@@ -87,18 +93,32 @@ const goToDetail = (item: any) => {
     justify-content: flex-start;
     background: #fff;
     .good-item {
+      display: flex;
+      position: relative;
+      justify-content: center;
       box-sizing: border-box;
       padding: 10px;
       border-bottom: 1px solid #e9e9e9;
       width: 50%;
-      img {
-        display: block;
-        margin: 0 auto;
-        width: 120px;
-        height: 120px;
+      height: 220px;
+      .img-wrapper {
+        display: flex;
+        align-items: center;
+        height: 150px;
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 120px;
+        }
       }
       .good-desc {
-        padding: 10px 0;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
         text-align: center;
         font-size: 14px;
         .title {
