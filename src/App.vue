@@ -1,5 +1,26 @@
 <template>
-  <router-view />
+  <!-- vue2 写法 -->
+  <!-- <keep-alive v-if="$route.meta.keepAlive">
+    <router-view />
+  </keep-alive>
+  <router-view v-if="!$route.meta.keepAlive" />-->
+
+  <!-- vue3 写法 -->
+  <router-view v-slot="{ Component }">
+    <!-- 记得加 key，不然可能报错 `parentComponent.ctx.deactivate is not a function` -->
+    <keep-alive>
+      <component
+        :is="Component"
+        v-if="$route.meta.keepAlive"
+        :key="$route.path"
+      />
+    </keep-alive>
+    <component
+      :is="Component"
+      v-if="!$route.meta.keepAlive"
+      :key="$route.path"
+    />
+  </router-view>
 </template>
 
 <script setup lang="ts"></script>
