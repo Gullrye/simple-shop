@@ -70,7 +70,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/vite-vue3-shop/'), // 给出的网址为 `https://example.com/vite-vue3-shop/`
   routes
 })
 
